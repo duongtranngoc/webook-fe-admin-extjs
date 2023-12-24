@@ -5,7 +5,7 @@ Ext.define('MyProjectFrontend.config.Config', {
     singleton: true,
 
     config: {
-        appBaseUrl: 'http://localhost:8000/api/',
+        appBaseUrl: 'http://localhost:8000/api/admin/',
     },
 
     constructor: function (config) {
