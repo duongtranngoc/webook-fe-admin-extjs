@@ -1,0 +1,89 @@
+.login-view {
+    .x-panel-body-default {
+        background-image: url('../../../../../resources/img/background/login.jpeg') !important;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        .login-form {
+            background: transparent !important;
+            backdrop-filter: blur(20px);
+            border: 2px solid wheat;
+            border-radius: 20px;
+
+            .login-title {
+                color: white;
+                font-size: 24px;
+                font-weight: 600;
+                text-transform: uppercase;
+                margin: 12px 0px 32px;
+            }
+
+            .x-panel-body-default {
+                background: transparent !important;
+            }
+
+            .login-content {
+                border-top: 2px solid white;
+                border-bottom: 2px solid white;
+
+                .x-form-item-label-inner {
+                    color: white;
+                    font-size: 16px;
+                    font-weight: 400;
+                }
+
+                .x-form-trigger-wrap-default {
+                    height: 40px;
+                }
+
+                .x-form-text-default {
+                    padding: 4px 36px 4px 12px;
+                    font-weight: 600;
+                }
+
+                .login-password-wrap {
+                    position: relative !important;
+
+                    .show-password-button {
+                        position: absolute !important;
+                        background: transparent;
+                        border: none;
+
+                        top: 28px;
+                        right: 0px;
+                        width: 44px;
+                        height: 44px;
+
+                        .x-btn-icon-el.x-btn-icon-el-default-small {
+                            color: black;
+                        }
+
+                        &.x-focus.x-btn-focus.x-btn-default-small {
+                            background: transparent !important;
+                            -webkit-box-shadow: none !important
+                        }
+                    }
+                }
+            }
+
+            .login-button {
+                background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 0, 0.5)) !important;
+                border: none;
+                border-radius: 12px;
+
+                .x-btn-inner-default-small {
+                    line-height: 40px;
+                    font-size: 16px;
+                }
+
+                &:hover {
+                    border: 1px solid white;
+
+                    .x-btn-inner-default-small {
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+    }
+}
