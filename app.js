@@ -12,7 +12,4 @@ Ext.application({
         // so that application classes do not need to require each other.
         'WebookAdmin.*'
     ],
-
-    // The name of the initial view to create.
-    mainView: 'WebookAdmin.view.main.Main'
 });
