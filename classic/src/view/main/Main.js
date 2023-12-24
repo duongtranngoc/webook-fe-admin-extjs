@@ -6,7 +6,7 @@
  * TODO - Replace this content of this view to suite the needs of your application.
  */
 Ext.define('WebookAdmin.view.main.Main', {
-    extend: 'Ext.tab.Panel',
+    extend: 'Ext.container.Viewport',
     xtype: 'app-main',
 
     requires: [
@@ -15,89 +15,125 @@ Ext.define('WebookAdmin.view.main.Main', {
 
         'WebookAdmin.view.main.MainController',
         'WebookAdmin.view.main.MainModel',
-        'WebookAdmin.view.main.List'
     ],
 
     controller: 'main',
     viewModel: 'main',
 
-    ui: 'navigation',
+    cls: 'main-view',
+    layout: 'border',
 
-    tabBarHeaderPosition: 1,
-    titleRotation: 0,
-    tabRotation: 0,
+    items: [
+        {
+            xtype: 'container',
+            region: 'north',
 
-    header: {
-        layout: {
-            align: 'stretchmax'
-        },
-        title: {
-            bind: {
-                text: '{name}'
-            },
-            flex: 0
-        },
-        iconCls: 'fa-th-list'
-    },
+            cls: 'main-header',
+            height: sizeconstant.MAIN.HEIGHT_HEADER,
+            layout: 'hbox',
 
-    tabBar: {
-        flex: 1,
-        layout: {
-            align: 'stretch',
-            overflowHandler: 'none'
-        }
-    },
+            items: [
+                {
+                    xtype: 'container',
+                    html: `<h1>Phần logo</h1>`,
 
-    responsiveConfig: {
-        tall: {
-            headerPosition: 'top'
-        },
-        wide: {
-            headerPosition: 'left'
-        }
-    },
-
-    defaults: {
-        bodyPadding: 20,
-        tabConfig: {
-            responsiveConfig: {
-                wide: {
-                    iconAlign: 'left',
-                    textAlign: 'left'
+                    height: '100%',
+                    width: sizeconstant.MAIN.WIDTH_MENU_OPENED
                 },
-                tall: {
-                    iconAlign: 'top',
-                    textAlign: 'center',
-                    width: 120
+                {
+                    flex: 1
+                },
+                {
+                    xtype: 'container',
+                    html: `<h1>Phần thông tin tài khoản</h1>`,
+                    height: '100%',
                 }
-            }
-        }
-    },
+            ]
+        },
+        {
+            xtype: 'container',
+            region: 'west',
+            reference: 'mainSidebar',
 
-    items: [{
-        title: 'Home',
-        iconCls: 'fa-home',
-        // The following grid shares a store with the classic version's grid as well!
-        items: [{
-            xtype: 'mainlist'
-        }]
-    }, {
-        title: 'Users',
-        iconCls: 'fa-user',
-        bind: {
-            html: '{loremIpsum}'
+            cls: 'main-sidebar',
+            layout: 'vbox',
+            bind: {
+                width: '{sidebarWidth}'
+            },
+
+            scrollable: 'y',
+
+            items: [
+                {
+                    xtype: 'treelist',
+                    itemId: 'navigationTreeList',
+                    reference: 'navigationTreeList',
+
+                    ui: 'navigation',
+                    cls: 'main-sidebar-content',
+                    width: sizeconstant.MAIN.WIDTH_MENU_OPENED,
+                    flex: 1,
+
+                    expanderFirst: false,
+                    expanderOnly: false
+                }
+            ]
+        },
+        {
+            xtype: 'container',
+            region: 'center',
+
+            cls: 'main-center',
+            reference: 'mainCenter',
+            layout: 'vbox',
+
+            items: [
+                {
+                    xtype: 'container',
+                    itemId: 'headerBar',
+
+                    cls: 'main-center-header',
+                    height: 40,
+                    width: '100%',
+                    layout: 'hbox',
+
+                    items: [
+                        {
+                            xtype: 'button',
+                            id: 'main-navigation-btn',
+                            reference: 'buttonToggleSidebar',
+
+                            cls: 'icon-collapse',
+                            iconCls: 'x-fa fa-chevron-left',
+                            margin: 10,
+
+                            handler: 'onToggleNavigationSize'
+                        },
+                        {
+                            cls: 'list-breadscrumb',
+                            bind: {
+                                html: '{breadscrumbHtml}'
+                            }
+                        }
+                    ]
+                },
+                {
+                    xtype: 'container',
+                    region: 'center',
+                    reference: 'mainCardPanel',
+
+                    cls: 'main-center-content',
+                    width: '100%',
+                    margin: 10,
+                    flex: 1,
+                    layout: {
+                        type: 'card',
+                        anchor: '100%'
+                    },
+
+                    scrollable: true
+                }
+            ]
         }
-    }, {
-        title: 'Groups',
-        iconCls: 'fa-users',
-        bind: {
-            html: '{loremIpsum}'
-        }
-    }, {
-        title: 'Settings',
-        iconCls: 'fa-cog',
-        bind: {
-            html: '{loremIpsum}'
-        }
-    }]
+    ]
 });

@@ -1,0 +1,77 @@
+@import '../../var/extend/Toast.scss';
+
+.toast-success,
+.toast-info,
+.toast-error,
+.toast-warning {
+    &.x-window-default {
+        border-radius: 8px;
+
+        &.toast-success {
+            border: 2px solid $toast-success-color;
+
+            .x-window-header-default-top {
+                background: $toast-success-color;
+            }
+        }
+
+        &.toast-info {
+            border: 2px solid $toast-info-color;
+
+            .x-window-header-default-top {
+                background: $toast-info-color;
+            }
+        }
+
+        &.toast-error {
+            border: 2px solid $toast-error-color;
+
+            .x-window-header-default-top {
+                background: $toast-error-color;
+            }
+        }
+
+        &.toast-warning {
+            border: 2px solid $toast-warning-color;
+
+            .x-window-header-default-top {
+                background: $toast-warning-color;
+            }
+        }
+    }
+
+    .x-window-header-default-top {
+        padding: 10px;
+        border: none !important;
+
+        .fa-check-circle {
+            color: white !important;
+        }
+
+        .x-title-text {
+            color: white !important;
+        }
+
+        .x-title-text {
+            line-height: 32px;
+            font-size: 20px;
+            font-weight: 600;
+            text-transform: lowercase;
+
+            &::first-letter {
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    .x-window-body-default {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: normal !important;
+        text-transform: lowercase;
+
+        &::first-letter {
+            text-transform: uppercase;
+        }
+    }
+}
