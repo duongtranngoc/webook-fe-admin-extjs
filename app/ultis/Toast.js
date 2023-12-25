@@ -14,8 +14,7 @@ Ext.define('WevbookAdmin.utils.Toast', {
             minWidth: 200,
             maxWidth: 400,
             paddingX: 20,
-            paddingY: 20,
-            autoCloseDelay: 500000000
+            paddingY: 20
         });
     },
 
